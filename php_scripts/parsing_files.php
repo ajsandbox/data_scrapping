@@ -34,6 +34,24 @@
 		}
 		echo "\n";
 
+		// Note : We can also use xpath queries once we receive the nodes in a nested manner. 
+		$links1 = $xpath->query(".//a[@class='product photo product-item-photo ']", $entry);
+		if($links1->length > 0)
+		{
+			echo $filearray[$i]."^"."Available"."^";
+			$name = $xpath->query(".//a[@class='product-item-link']", $entry);
+			echo trim(preg_replace('/\s+/', ' ', $name[0]->nodeValue));
+			echo "^";
+			echo trim(preg_replace('/\s+/', ' ', $name[0]->getAttribute('href')));
+			echo "^";
+			$special_price = $xpath->query(".//span[@class='special-price']/span/span/span[@class='price']", $entry);
+			echo trim(preg_replace('/\s+/', ' ', $special_price[0]->nodeValue));
+			echo "^";
+			$old_price = $xpath->query(".//span[@class='old-price']/span/span/span[@class='price']", $entry);
+			echo trim(preg_replace('/\s+/', ' ', $old_price[0]->nodeValue));
+			echo "\n";
+		}	
+
 		// Regular expression parsing 
 		if(preg_match_all('/^.*(Sat|Sun|Mon|Tue|Wed|Thu|Fri)\,\s([0-9a-zA-Z\s:]+)from/i', $td->item($i)->nodeValue, $resultnew))					
 		$dateandtime = $resultnew[2][0];					
