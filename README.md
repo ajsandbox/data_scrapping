@@ -31,6 +31,14 @@ PHP Code (Code snippets in the php_scripts folder)
 * Website copier (Static pages) - https://www.httrack.com/ : Right for a quick and dirty job, but ends up spoiling the relative links
 * Chrome extensions - Web Scrapper
 
+## Downloading Javascript and AJAX websites
+
+* Monitor the XDR requests in the browser using developer tools
+* Download the javascript files so that you know how a particular API point is called. 
+* Look for JSON objects (sometimes statis data is kept that way)
+* Look at the API end points and function calls. Trick could be to find how exact URL is being made by searching for ``$http.get(sprintf(staticCategoryPageReadLinks.allCategoryBanner,category))`` etc
+* https://www.octoparse.com/tutorial/automatically-scrape-dynamic-websites-exampletwitter/?qu
+
 ## Techniques 
 
 Different scenarios encounters

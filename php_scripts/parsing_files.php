@@ -62,6 +62,11 @@
 		$spancontents = $xpath->query('span', $td->item($i));
 		$description = $spancontents->item(0)->nodeValue;
 
+		
+		////////////////////////////////
+		////////// Technique 1.5 /////////
+		////////////////////////////////
+
 		// Example of simply parsing the file itself without first loading it into a DOM. 
 		$newString = file_get_contents($filearray[$i]);
 		trim(preg_replace('/\s+/', ' ', $newString));
@@ -75,6 +80,18 @@
 		echo ";".$matches[0];
 		preg_match('/<h4><b>Facebook:<\/b>(.*)<\/h4>/siU',$newString, $matches);		
 		echo ";".$matches[0];
+
+		// Example of parse and find all the matching tags
+		$newString = file_get_contents($filearray[$i]);
+		trim(preg_replace('/\s+/', ' ', $newString));
+		echo "\n";
+
+		//preg_match('/<title>(.*)<\/title>/siU',$newString, $matches);		
+		preg_match_all('/<script type="text\/javascript" src=(.*)\/script>/siU',$newString, $matches, PREG_SET_ORDER);		
+		foreach ($matches as $matchgroup) {
+    		echo $filearray[$i].";".$matchgroup[0];
+    		echo "\n";
+		}
 
 		////////////////////////////////
 		////////// Technique 2 /////////
