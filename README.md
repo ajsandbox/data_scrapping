@@ -30,7 +30,7 @@ PHP Code (Code snippets in the php_scripts folder)
 
 * Website copier (Static pages) - https://www.httrack.com/ : Right for a quick and dirty job, but ends up spoiling the relative links
 * Chrome extensions - Web Scrapper
-* Use a headless browser like phantomjs 
+* Use a headless browser like phantomjs (useful especially when there is heavy client side scripting) or casperjs (for navigations and testing)
 * Open source frameworks like : scrapy and pyspider 
 * To speed up the crawls : scrapy-redis, redis, kafka, rabbit-mq etc 
 
@@ -53,6 +53,7 @@ Prevention techniques used and some of the workarounds.
 * Request payloads: Makemytrip sets a cookie the first time a user visits the website homepage. It sends the same parameter in all the query that the client makes (a form of a token based authentication). This 
 * Multithreading requests makes the code run fast 
 * One of the ways to prevent is to see the pattern of requests coming from a particular server. People circumvent this by using public clouds (multiple instances or google scripts) or by implementing a random request pattern. One of the more interesting cases I found was when the company would actually monitor the traffic for the scrap requests and instead of denying the data, would deliberately feed wrong data. 
+* Dev Tools shows the current state of the DOM, whereas the ‘view-source’ shows the HTML as it is when it is first loaded by the browser.
 * Always good to have error check for scrapping.
 	* Websites keep updating and have multiple different structures. Simple things like name should be less than XX or price should float etc can raise right triggers if the structure of the website changes. 
 * Saving session variables between multiple curl calls
