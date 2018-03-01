@@ -30,6 +30,9 @@ PHP Code (Code snippets in the php_scripts folder)
 
 * Website copier (Static pages) - https://www.httrack.com/ : Right for a quick and dirty job, but ends up spoiling the relative links
 * Chrome extensions - Web Scrapper
+* Use a headless browser like phantomjs 
+* Open source frameworks like : scrapy and pyspider 
+* To speed up the crawls : scrapy-redis, redis, kafka, rabbit-mq etc 
 
 ## Downloading Javascript and AJAX websites
 
@@ -50,6 +53,15 @@ Prevention techniques used and some of the workarounds.
 * Request payloads: Makemytrip sets a cookie the first time a user visits the website homepage. It sends the same parameter in all the query that the client makes (a form of a token based authentication). This 
 * Multithreading requests makes the code run fast 
 * One of the ways to prevent is to see the pattern of requests coming from a particular server. People circumvent this by using public clouds (multiple instances or google scripts) or by implementing a random request pattern. One of the more interesting cases I found was when the company would actually monitor the traffic for the scrap requests and instead of denying the data, would deliberately feed wrong data. 
+* Always good to have error check for scrapping.
+	* Websites keep updating and have multiple different structures. Simple things like name should be less than XX or price should float etc can raise right triggers if the structure of the website changes. 
+* Saving session variables between multiple curl calls
+	* http://stackoverflow.com/questions/25389151/php-session-not-saved-after-curl-call
+	* http://board.phpbuilder.com/showthread.php?10346748-RESOLVED-Curl-with-sessions
 
+
+## Notes 
+
+* https://www.whoishostingthis.com/tools/user-agent/ (To check for the useragent)
 
 Note : These are based on some of my experiences in scrapping and test automation. Please check the legal aspects of the website before using any of the above approaches. 
